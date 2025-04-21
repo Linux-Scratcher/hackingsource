@@ -1,0 +1,201 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', monospace;
+    background-color: #000;
+    color: #0f0;
+    overflow: hidden;
+    position: relative;
+}
+
+.matrix-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: -1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    border-bottom: 1px solid #0f0;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 0;
+    text-shadow: 0 0 5px #0f0;
+}
+
+.matrix-text {
+    animation: flicker 0.5s infinite alternate;
+}
+
+@keyframes flicker {
+    0% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+main {
+    display: flex;
+    gap: 20px;
+}
+
+#chat-container {
+    flex: 3;
+    border: 1px solid #0f0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #0f0;
+}
+
+#messages {
+    height: 500px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #0f0;
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 8px;
+    border-left: 3px solid #0f0;
+}
+
+.message.system {
+    color: #0ff;
+}
+
+.message.user {
+    color: #0f0;
+}
+
+#user-input {
+    display: flex;
+    gap: 10px;
+}
+
+.matrix-input {
+    flex: 1;
+    padding: 10px;
+    background: #111;
+    border: 1px solid #0f0;
+    color: #0f0;
+    font-family: 'Courier New', monospace;
+}
+
+.matrix-input:focus {
+    outline: none;
+    box-shadow: 0 0 5px #0f0;
+}
+
+.matrix-btn {
+    padding: 10px 20px;
+    background: #111;
+    border: 1px solid #0f0;
+    color: #0f0;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    transition: all 0.3s;
+}
+
+.matrix-btn:hover {
+    background: #0f0;
+    color: #000;
+}
+
+#online-users {
+    flex: 1;
+    border: 1px solid #0f0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #0f0;
+}
+
+#users-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#users-list li {
+    padding: 5px;
+    border-bottom: 1px dotted #0f0;
+}
+
+/* Matrix rain effect */
+.matrix-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent 80%, rgba(0, 255, 0, 0.1));
+    animation: rain 1s linear infinite;
+}
+
+@keyframes rain {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 10px; }
+}
+
+/* Authentification */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #0f0;
+    border-radius: 5px;
+}
+
+.matrix-link {
+    color: #0f0;
+    text-decoration: none;
+}
+
+.matrix-link:hover {
+    text-decoration: underline;
+}
+
+.flash-messages {
+    margin-bottom: 20px;
+}
+
+.flash {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid;
+    border-radius: 4px;
+}
+
+.flash.success {
+    color: #0f0;
+    border-color: #0f0;
+    background: rgba(0, 255, 0, 0.1);
+}
+
+.flash.error {
+    color: #f00;
+    border-color: #f00;
+    background: rgba(255, 0, 0, 0.1);
+}
+
+.logout-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}

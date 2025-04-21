@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}Chat Secure{% endblock %}
+
+{% block header %}
+    <p class="matrix-text">> Canal sécurisé actif | Agent: {{ username }}</p>
+    <a href="{{ url_for('logout') }}" class="matrix-btn logout-btn">> Déconnexion</a>
+{% endblock %}
+
+{% block content %}
+    <main>
+        <div id="chat-container">
+            <div id="messages">
+                {% for message in messages %}
+                    <div class="message user">
+                        <strong>> {{ message.username }} [{{ message.timestamp }}]:</strong> {{ message.content }}
+                    </div>
+                {% endfor %}
+            </div>
+            
+            <div id="user-input">
+                <input type="text" id="message" placeholder="> Message" class="matrix-input">
+                <button id="send-btn" class="matrix-btn">> Envoyer</button>
+            </div>
+        </div>
+        
+        <div id="online-users">
+            <h3 class="matrix-text">> Agents connectés:</h3>
+            <ul id="users-list"></ul>
+        </div>
+    </main>
+
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script>
+        const username = "{{ username }}";
+        const user_id = "{{ session['user_id'] }}";
+    </script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}

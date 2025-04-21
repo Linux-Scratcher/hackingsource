@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block header %}
+    <p class="matrix-text">> Création de compte agent...</p>
+{% endblock %}
+
+{% block content %}
+    <form method="POST" class="auth-form">
+        <input type="text" name="username" placeholder="> Nom d'utilisateur" class="matrix-input" required>
+        <input type="password" name="password" placeholder="> Mot de passe" class="matrix-input" required>
+        <button type="submit" class="matrix-btn">> S'inscrire</button>
+    </form>
+    <p class="matrix-text">> Déjà enregistré? <a href="{{ url_for('login') }}" class="matrix-link">Se connecter</a></p>
+{% endblock %}
